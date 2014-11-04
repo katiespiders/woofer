@@ -1,0 +1,15 @@
+<% @woofs.each do |woof| %>
+  <a href= <%= woof_path(woof.id) %> style="display: block">
+  <div style="border-style: solid; width: 30%; padding: 10px">
+    <blockquote><%= woof.body %></blockquote>
+    <cite>--sez <%= woof.author %> at <%= woof.created_at %></cite>
+  </div></a><br>
+<% end %>
+
+<%= form_for :woof, url: woof_create_path do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %><br><br>
+  <%= f.label :body %>
+  <%= f.text_area :body %><br>
+  <%= f.submit "WOOF" %>
+<% end %>
